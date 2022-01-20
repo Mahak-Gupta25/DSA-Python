@@ -18,3 +18,18 @@ class Solution:
             curr = n
         return prev
         #(Time complexity = O(n), Space complexity = O(1))
+
+#Recursive Solution-
+
+class Solution:
+    def reverseList(self, head):
+        if not head:
+            return None
+
+        newHead = head
+        if head.next:
+            newHead = self.reverseList(head.next)
+            head.next.next = head
+        head.next = None
+
+        return newHead
